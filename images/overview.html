@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overview | Dravidian 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<header class="navbar">
+  <header class="navbar">
+    <div class="container navbar-container">
+      <div class="brand">
+        <img src="images/dravidian-code-mixed-logo.png" alt="DravidianCodeMix Logo" class="logo-img" />
+        <h1 class="site-title">DravidianCodeMix 2025</h1>
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav class="nav-menu" id="navLinks">
+        <a href="overview.html">Overview</a>
+        <a href="keynote.html">Keynote</a>
+        <a href="dataset.html">Dataset</a>
+        <a href="dates.html">Timeline</a>
+        <a href="organizers.html">Organizers</a>
+        <a href="submission.html">Submission</a>
+        <div class="dropdown">
+          <a href="#" class="dropbtn">Previous Year</a>
+          <div class="dropdown-content">
+            <a href="https://dravidian-codemix.github.io/2020/">2020</a>
+            <a href="https://dravidian-codemix.github.io/2021/index.html">2021</a>
+            <a href="https://sites.google.com/view/dravidiancodemix-2022/home?authuser=0">2022</a>
+            <a href="https://sites.google.com/view/dravidian-codemix-fire-2023/home?authuser=0">2023</a>
+            <a href="https://sites.google.com/view/dravidian-codemix-fire2024/home">2024</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <body>
+    <section class="track-description">
+      <div class="container">
+        <h2>Overview</h2>
+        <p>
+          Offensive language detection is a critical task in natural language processing, particularly in the context of
+          online discourse, where harmful content can spread rapidly. Identifying offensive language is challenging due
+          to the varied ways in which offense is conveyed, including subtle linguistic cues, code-mixing, and cultural
+          context. Code-mixing is a prevalent phenomenon in a multilingual community, and the code-mixed texts are
+          sometimes written in non-native scripts. Systems trained on monolingual data fail on code-mixed data due to
+          the complexity of code-switching at different linguistic levels in the text.
+        </p>
+        <p>
+          This shared task presents a corpus for offensive language identification of code-mixed text in Dravidian
+          languages (Tamil-English, Malayalam-English, Kannada-English, and Tulu-English). This task is further
+          complicated in low-resource languages where limited annotated datasets exist for offensive speech detection.
+        </p>
+        <p>
+          This shared task presents a gold-standard dataset for offensive language detection in Tamil, Malayalam,
+          Kannada, and Tulu, enabling researchers to develop robust classification models. The dataset consists of
+          social media comments and posts that are categorized into four classes:
+        </p>
+        <ul>
+          <li><strong>Not Offensive (NO):</strong> Content without any offensive elements.</li>
+          <li><strong>Offensive Untargeted (OU):</strong> Offensive content that is not directed at a specific
+            individual or entity.</li>
+          <li><strong>Offensive Targeted (OT):</strong> Direct attacks on an individual or group, including hate speech
+            targeting a community, ethnicity, caste, or gender.</li>
+          <li><strong>Not Tamil/Not Malayalam/Not Kannada/Not Tulu (NT):</strong> Content that does not contain the
+            Tamil, Malayalam, Kannada, or Tulu languages.</li>
+        </ul>
+        <p>
+          The primary goal of this shared task is to build and evaluate systems that can automatically classify social
+          media text into these four categories. Participants will be provided with training, development, and test
+          datasets to develop their models. Given the real-world class imbalance in offensive content, models must be
+          designed to handle the skewed distribution of data effectively.
+        </p>
+        <p>
+          As far as we know, this is the first shared task on offensive language detection in Tulu. By organizing this
+          task, we aim to foster research in under-resourced languages, improve computational approaches for offense
+          detection in multilingual and code-mixed settings, and contribute to the responsible use of AI in moderating
+          harmful content online.
+        </p>
+      </div>
+      <section class="track-description">
+        <div class="container">
+          <h2>Broad Categories</h2>
+          <ul>
+            <li>Natural Language Processing (NLP)</li>
+            <li>Machine Learning (ML)</li>
+          </ul>
+
+          <h2>Use Cases</h2>
+          <p>
+            Offensive language detection is a crucial task in natural language processing, particularly in the era of
+            digital communication, where social media platforms serve as primary spaces for public discourse. The rise
+            of online abuse, cyberbullying, hate speech, and toxic interactions necessitates the development of
+            automated systems that can detect and mitigate offensive content. The challenge becomes even more complex
+            due to code-mixing with Kannada, English, and other languages, as well as the use of non-native scripts,
+            making traditional offensive detection models ineffective.
+          </p>
+          <p>
+            By releasing a gold-standard dataset of offensive comments collected from YouTube discussions on news,
+            entertainment, and social issues, this shared task aims to:
+          </p>
+          <ul>
+            <li>Enable researchers to develop robust offensive language detection models for the Dravidian languages
+              Malayalam, Tamil, Kannada, and Tulu.</li>
+            <li>Assist social media platforms in moderating harmful content and ensuring safe online interactions.</li>
+            <li>Support law enforcement agencies and policymakers in identifying and mitigating the spread of hate
+              speech, cyberbullying, and targeted abuse.</li>
+            <li>Help businesses and brands monitor online discourse related to their products, ensuring that discussions
+              remain civil and constructive.</li>
+          </ul>
+          <p>
+            This shared task will bring together academia, industry, and social media platforms to develop AI-driven
+            solutions for identifying offensive content in the Dravidian languages, contributing to safer and more
+            inclusive digital spaces.
+          </p>
+        </div>
+      </section>
+    </section>
+    <footer class="footer">
+      <div class="container footer-container">
+        <!-- Logos -->
+        <footer class="footer">
+          <div class="container footer-container">
+            <!-- Emails -->
+            <div class="footer-emails">
+              <p>Email:</p>
+              <p>
+                <i class="fa-solid fa-envelope" style="color: #d93025;"></i>
+                <a href="mailto:dravidiancodemixed@gmail.com">dravidiancodemixed@gmail.com</a>
+                |
+                <i class="fa-solid fa-envelope" style="color: #d93025;"></i>
+                <a href="mailto:bharathiraja.akr@gmail.com">bharathiraja.akr@gmail.com</a>
+              </p>
+            </div>
+            <!-- Logos -->
+            <div class="footer-logos">
+              <div class="logo-box"><img src="images/university_of_galway.png" alt="Logo 1" /></div>
+              <div class="logo-box"><img src="images/Sri_Sivasubramaniya_Nadar_College_of_Engineering.svg.png"
+                  alt="Logo 2" /></div>
+              <div class="logo-box"><img src="images/SRM_Institute_of_Science_and_Technology_Logo.svg.png"
+                  alt="Logo 3" /></div>
+              <div class="logo-box"><img src="images/Yenepoya.png" alt="Logo 4" /></div>
+            </div>
+
+            <!-- Copyright -->
+            <p class="footer-copy">
+              © 2025 DravidianCodeMix Track. All rights reserved.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+        nav.classList.toggle("active");
+      }
+    </script>
+  </body>
+</header>
+</html>
