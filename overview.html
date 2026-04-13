@@ -43,47 +43,92 @@
   <body>
     <section class="track-description">
       <div class="container">
-        <h2>Overview</h2>
+        <h2>2. Track Description</h2>
         <p>
-          Offensive language detection is a critical task in natural language processing, particularly in the context of
-          online discourse, where harmful content can spread rapidly. Identifying offensive language is challenging due
-          to the varied ways in which offense is conveyed, including subtle linguistic cues, code-mixing, and cultural
-          context. Code-mixing is a prevalent phenomenon in a multilingual community, and the code-mixed texts are
-          sometimes written in non-native scripts. Systems trained on monolingual data fail on code-mixed data due to
-          the complexity of code-switching at different linguistic levels in the text.
+          DravidianCodeMix 2026 shared task addresses hate speech and hope speech detection across code-mixed Dravidian languages, with a specific focus on Tamil, Tulu, and Kannada. The track is organized into three complementary subtasks, each targeting distinct linguistic communities and computational challenges in under-resourced language. Together, the subtasks cover a spectrum of social-media harms from gender-targeted hate speech to caste and migration-based discrimination while advancing positive discourse detection as a counterpart to harmful content identification.
+        </p>
+
+        <!-- SubTask 1 -->
+        <h3><a href="#">SubTask 1: Hierarchical Gender-aware Tamil Hate Speech Detection (Tamil-English)</a></h3>
+        <p>
+          This sub task focuses on the detection and fine-grained classification of hate speech in Tamil, and code-mixed Tamil-English social media content. It introduces a gender-aware hierarchical dataset to support systems to identify hate speech and gender-related biases embedded in user-generated text. Beyond classifying hateful content, participating systems must detect hate speech in online communities.
+        </p>
+        <p>The task presents the following key challenges:</p>
+        <ul>
+          <li>Code-mixing and transliteration in Tamil-English social media text, where romanized Tamil and English words are freely interspersed.</li>
+          <li>Low-resource language settings, where labelled data and pre-trained linguistic resources remain scarce.</li>
+          <li>Bias in NLP systems, requiring models that are socially-aware and equitable across multiple dimensions such as gender, caste, age, religion, geography and region.</li>
+        </ul>
+
+        <!-- SubTask 2 -->
+        <h3><a href="#">SubTask 2: Multi-Task Hope Speech Detection in Code-Mixed Tulu</a></h3>
+        <p>
+          Hope speech detection has gained increasing attention in Natural Language Processing (NLP) as a counterpart to hate speech and offensive language detection, with direct applications in mental health monitoring, community well-being, and positive discourse promotion on social media. While prior work has explored hope speech in resource-rich languages such as English and Hindi, code-mixed low-resource languages like Tulu remain largely unaddressed. This shared task introduces the first computational framework for hope speech detection in code-mixed Tulu. Tulu, a Dravidian language spoken by over 2 million people in coastal Karnataka and parts of Kerala, is increasingly used in informal online communication on platforms such as YouTube, Facebook, and WhatsApp predominantly in a code-mixed form blending Tulu, Kannada, and English. The task is framed as a multi-task learning problem, where participants must build a single unified system that simultaneously predicts two levels of hope-related classification directly from raw code-mixed Tulu text:
         </p>
         <p>
-          This shared task presents a corpus for offensive language identification of code-mixed text in Dravidian
-          languages (Tamil-English, Malayalam-English, Kannada-English, and Tulu-English). This task is further
-          complicated in low-resource languages where limited annotated datasets exist for offensive speech detection.
-        </p>
-        <p>
-          This shared task presents a gold-standard dataset for offensive language detection in Tamil, Malayalam,
-          Kannada, and Tulu, enabling researchers to develop robust classification models. The dataset consists of
-          social media comments and posts that are categorized into four classes:
+          Participants are required to build a single unified system that takes raw code-mixed Tulu social media text as input and simultaneously produces two outputs:
         </p>
         <ul>
-          <li><strong>Not Offensive (NO):</strong> Content without any offensive elements.</li>
-          <li><strong>Offensive Untargeted (OU):</strong> Offensive content that is not directed at a specific
-            individual or entity.</li>
-          <li><strong>Offensive Targeted (OT):</strong> Direct attacks on an individual or group, including hate speech
-            targeting a community, ethnicity, caste, or gender.</li>
-          <li><strong>Not Tamil/Not Malayalam/Not Kannada/Not Tulu (NT):</strong> Content that does not contain the
-            Tamil, Malayalam, Kannada, or Tulu languages.</li>
+          <li><strong>Output 1:</strong> Coarse-Grained Tone: The overall emotional tone of the post.</li>
+          <li><strong>Output 2:</strong> Fine-Grained Hope Type: The specific type of hope expressed in the post.</li>
         </ul>
         <p>
-          The primary goal of this shared task is to build and evaluate systems that can automatically classify social
-          media text into these four categories. Participants will be provided with training, development, and test
-          datasets to develop their models. Given the real-world class imbalance in offensive content, models must be
-          designed to handle the skewed distribution of data effectively.
+          Both outputs must be predicted jointly in a single inference pass. No intermediate labels are provided. The two output levels are semantically dependent - the fine-grained hope type is inherently constrained by the coarse-grained tone - and participants are encouraged to design architectures that exploit this dependency.
+        </p>
+
+        <h4>Semantic Dependency Between Outputs</h4>
+        <p>
+          The two output levels are not independent. The following mapping reflects the inherent semantic relationship between fine-grained hope types and coarse-grained tones. Participants are encouraged to leverage this structure in their model design:
+        </p>
+        <table style="width: 100%; border-collapse: collapse; margin: 1em 0;">
+          <thead>
+            <tr>
+              <th style="background-color: #7B68AE; color: #fff; padding: 10px 16px; text-align: center; border: 1px solid #7B68AE; font-weight: bold;">Fine-Grained Hope Type (Output 2)</th>
+              <th style="background-color: #7B68AE; color: #fff; padding: 10px 16px; text-align: center; border: 1px solid #7B68AE; font-weight: bold;">Coarse-Grained Tone (Output 1)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Optimistic Hope</td>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Encouraging</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Realistic Hope</td>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Encouraging</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Inspiring Hope</td>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Encouraging / Blended</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Fading Hope</td>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Blended / Discouraging</td>
+            </tr>
+            <tr>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Hopelessness</td>
+              <td style="padding: 10px 16px; text-align: center; border: 1px solid #ccc;">Discouraging</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Challenges:</h4>
+        <ul>
+          <li><strong><em>Code-Mixing:</em></strong> Tulu social media content frequently involves a tri-lingual mixture of Tulu, Kannada, and English. Unlike typical code-mixed settings involving two languages, this trilingual complexity significantly complicates the identification of hope-related expressions.</li>
+          <li><strong><em>Absence of Annotated Resources:</em></strong> There is currently no annotated dataset or computational system for hope speech detection in Tulu, making this a pioneering effort in the field.</li>
+          <li><strong><em>Cultural and Linguistic Nuances:</em></strong> Tulu's regional idioms, expressions, and culturally specific references complicate the accurate identification of hope-related content, as these nuances are largely absent from existing NLP frameworks.</li>
+          <li><strong><em>Joint Multi-Output Prediction:</em></strong> The task requires predicting both emotional tone and hope type simultaneously from raw text alone, without any intermediate labels. This demands models that can internally capture hierarchical semantic relationships across two output levels in a single inference pass.</li>
+        </ul>
+
+        <!-- SubTask 3 -->
+        <h3><a href="#">SubTask 3: Hate Speech on Caste and Migration in Kannada</a></h3>
+        <p>
+          Caste-related hate speech refers to derogatory, abusive, or exclusionary language directed at individuals or communities based on their caste identity, often reinforcing long-standing hierarchies and discrimination. Similarly, hate speech targeting different religions involves the spread of offensive, demeaning, or hostile expressions against religious groups, which can deepen communal divisions and provoke conflict. Migrants within the country, who relocate in search of better opportunities, frequently face inequalities such as social exclusion, limited access to resources, and prejudice, and are often blamed for issues like unemployment or crime. These forms of discrimination are increasingly visible on social media platforms, where anonymity and rapid information sharing enable the widespread dissemination of harmful content. As a result, social media becomes a breeding ground for caste-, religion-, and migration-based hate speech, amplifying biases and normalizing intolerance. This not only affects the mental well-being and safety of targeted communities but also contributes to polarization, misinformation, and the erosion of social cohesion online and offline.
         </p>
         <p>
-          As far as we know, this is the first shared task on offensive language detection in Tulu. By organizing this
-          task, we aim to foster research in under-resourced languages, improve computational approaches for offense
-          detection in multilingual and code-mixed settings, and contribute to the responsible use of AI in moderating
-          harmful content online.
+          Overall, by organizing this task, we aim to foster research in under-resourced languages, improve computational approaches for offense detection in multilingual and code-mixed settings, and contribute to the responsible use of AI in moderating harmful content online.
         </p>
       </div>
+    </section>
       <section class="track-description">
         <div class="container">
           <h2>Broad Categories</h2>
